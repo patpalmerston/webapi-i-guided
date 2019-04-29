@@ -12,3 +12,15 @@ server.listen(4000, () => {
 //New Lines \n allows us to break up the code as it downloads
 
 // commands - stop the server before we upload packages(cntrl 'C') and restart the server after package download with "yarn server".
+
+// you can delete node_modules and yarn lock and then re install 'yarn start' to add fresh dependencies.
+
+// Create endpoint
+server.get('/', (req, res) => {
+  res.send('Hello World')
+})
+
+server.get('/now', (req, res) => {
+  const cDate = new Date().toISOString();// mdn search(reverts date object to a string)
+  res.send(cDate)
+})
