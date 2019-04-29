@@ -53,7 +53,7 @@ server.get('/hubs', (req, res) => {
     */
 })
 
-// adding data endpoint (this is getting an error on postman)
+// adding data endpoint 
 server.post('/hubs', (req, res) => {
   const hubInfo = req.body;
 
@@ -66,7 +66,7 @@ server.post('/hubs', (req, res) => {
       res.status(err.code).json({success: false, message: err.message})
     });
 });
-////////////////////////////////// Error on postman ^^^^^^
+
 
 // adding a delete endpoint
 
