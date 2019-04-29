@@ -53,7 +53,7 @@ server.get('/hubs', (req, res) => {
     */
 })
 
-// adding data endpoint
+// adding data endpoint (this is getting an error on postman)
 server.post('/hubs', (req, res) => {
   const hubInfo = req.body;
 
@@ -66,3 +66,19 @@ server.post('/hubs', (req, res) => {
       res.status(err.code).json({success: false, message: err.message})
     });
 });
+////////////////////////////////// Error on postman ^^^^^^
+
+// adding a delete endpoint
+
+server.delete('/hubs/:id', (req, res) => {
+  const id = req.params.id;
+// we can use empty () or a word like deleted(foobar) for the delete .then method
+  db.hubs
+    .remove(id)
+    .then(deleted => {
+      res.status(201).end();
+    })
+    .catch(err => {
+      res.status(err.code).json({ success: true, message: err.message })
+    })
+})
